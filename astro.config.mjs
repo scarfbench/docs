@@ -1,9 +1,12 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+const isProd = process.env.NODE_ENV === "production";
+const base = process.env.BASE_PATH ?? (isProd ? "/docs/" : "/");
+
 export default defineConfig({
   site: "https://scarfbench.github.io/",
-  base: "/docs/",
+  base: "docs",
   integrations: [
     starlight({
       title: "🧣 ScarfBench",
